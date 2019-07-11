@@ -1,3 +1,5 @@
+import Header from "../components/header";
+
 function Index() {
   return (
     <main>
