@@ -9,7 +9,7 @@ const links = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/mattcrdley",
+    href: "https://www.linkedin.com/in/mattcridley",
   },
 ];
 

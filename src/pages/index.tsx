@@ -127,7 +127,7 @@ export default function Index() {
                 </a>
                 <a
                   className="inline-flex items-center border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-900 hover:border-gray-900"
-                  href="https://www.linkedin.com/in/mattcrdley"
+                  href="https://www.linkedin.com/in/mattcridley"
                   rel="noreferrer"
                   target="_blank"
                 >
