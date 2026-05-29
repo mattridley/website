@@ -7,8 +7,8 @@ const impactHighlights = [
     label: "BGP test revenue increase in the first month after launch",
   },
   {
-    value: "$52k",
-    label: "annual BGP infrastructure savings championed through Komodor",
+    value: "$10m",
+    label: "Blink revenue supported through early GTM solutions engineering",
   },
   {
     value: "13.3%",
@@ -201,9 +201,10 @@ export default function Index() {
                   Featured project
                 </h2>
                 <p className="mt-4 text-base leading-7 text-gray-700">
-                  Reports Master is my new reporting project, built to make
-                  report generation and delivery more practical for real
-                  operational workflows.
+                  Reports Master is my new project for educators preparing
+                  student reports, built to make drafting, reviewing, and
+                  refining high-quality report comments faster and more
+                  consistent.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
                   <a
