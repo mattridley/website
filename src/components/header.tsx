@@ -1,15 +1,23 @@
 const links = [
   {
+    label: "Ask my CV",
+    href: "/#ask-cv",
+    external: false,
+  },
+  {
     label: "Reports Master",
     href: "https://reportsmaster.ridley.dev",
+    external: true,
   },
   {
     label: "GitHub",
     href: "https://github.com/mattridley",
+    external: true,
   },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/mattcridley",
+    external: true,
   },
 ];
 
@@ -26,8 +34,8 @@ export default function Header() {
               className="hover:text-gray-900"
               href={link.href}
               key={link.href}
-              rel="noreferrer"
-              target="_blank"
+              rel={link.external ? "noreferrer" : undefined}
+              target={link.external ? "_blank" : undefined}
             >
               {link.label}
             </a>
