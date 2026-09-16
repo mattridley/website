@@ -1,0 +1,39 @@
+name: Verify CV assistant UI
+
+on:
+  push:
+    branches:
+      - feature/ask-cv-stacked
+    paths:
+      - .github/workflows/verify-cv-ui.yml
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/ask-cv-stacked
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Refresh lockfile
+        run: npm install --package-lock-only --ignore-scripts
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+      - name: Build
+        run: npm run build
+      - name: Type check
+        run: npm run type-check
+      - name: Commit lockfile and remove helper workflow
+        run: |
+          rm .github/workflows/verify-cv-ui.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json .github/workflows/verify-cv-ui.yml
+          git commit -m "Refresh lockfile for Markdown rendering"
+          git push origin HEAD:feature/ask-cv-stacked
