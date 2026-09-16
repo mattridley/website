@@ -24,7 +24,7 @@ const roles = [
     summary:
       "Technical Lead for Agentic Systems Engineering, running the team responsible for our internal agent runtime and Agentic SDLC. I work with engineering teams across Cisco to understand their use cases, improve the platform and roll it out more widely. I have also written tools for the ThousandEyes MCP server and use MCP day to day.",
     details:
-      "Alongside this, I have spent the last two years leading architecture and delivery across the BGP product, including Easy Onboarding, which automates test and alert-rule creation using an intelligent matching engine and drove a 7% increase in BGP test revenue in its first month. I have also driven engineering quality and infrastructure efficiency across the area, including work that reduced customer-reported bugs by 13.3% and BGP infrastructure costs by $52k per year.",
+      "Previously, I led architecture and delivery across the BGP product, including Easy Onboarding, which automates test and alert-rule creation using an intelligent matching engine and drove a 7% increase in BGP test revenue in its first month. I also drove engineering quality and infrastructure efficiency across the area, including work that reduced customer-reported bugs by 13.3% and BGP infrastructure costs by $52k per year.",
   },
   {
     title: "Lead Software Engineer",
