@@ -21,15 +21,41 @@ jobs:
         with:
           node-version: 24
           cache: npm
+      - name: Add inline CV prompt to homepage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          index = Path("src/pages/index.tsx")
+          text = index.read_text()
+          if 'import CvQuestion from "../components/cv-question";' not in text:
+              text = text.replace(
+                  'import Header from "../components/header";\n',
+                  'import Header from "../components/header";\nimport CvQuestion from "../components/cv-question";\n',
+              )
+          marker = '''                  <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-700">
+                    I am a commercially minded technical leader with experience
+                    across agentic systems, enterprise connectivity, identity,
+                    integrations, network observability and full-stack product
+                    engineering.
+                  </p>'''
+          if '<CvQuestion />' not in text:
+              text = text.replace(marker, marker + '\n                  <CvQuestion />')
+          index.write_text(text)
+
+          header = Path("src/components/header.tsx")
+          header_text = header.read_text().replace('href: "/ask",', 'href: "/#ask-cv",')
+          header.write_text(header_text)
+          PY
       - run: npm install --package-lock-only --ignore-scripts
-      - name: Commit lockfile
+      - name: Commit generated changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add package-lock.json
+          git add package-lock.json src/pages/index.tsx src/components/header.tsx
           if git diff --cached --quiet; then
-            echo "Lockfile already current"
+            echo "Generated files already current"
           else
-            git commit -m "Regenerate package lock"
+            git commit -m "Place CV assistant on homepage and refresh lockfile"
             git push origin HEAD:feature/cv-mcp-sdk-rebased
           fi
