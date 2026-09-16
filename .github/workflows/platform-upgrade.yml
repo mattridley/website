@@ -24,11 +24,19 @@ jobs:
         run: |
           npm install --ignore-scripts --legacy-peer-deps next@latest react@latest react-dom@latest
           npm install --ignore-scripts --legacy-peer-deps --save-dev typescript@latest @types/react@latest @types/react-dom@latest @types/node@latest
-      - name: Remove obsolete Next serverless target
+      - name: Update legacy configuration
         run: |
           cat > next.config.js <<'EOF'
           module.exports = {};
           EOF
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('tsconfig.json')
+          data = json.loads(path.read_text())
+          data['compilerOptions']['target'] = 'ES2017'
+          path.write_text(json.dumps(data, indent=2) + '\n')
+          PY
       - name: Verify production build
         run: npm run build
       - name: Verify TypeScript
