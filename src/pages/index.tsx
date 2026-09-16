@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "../components/header";
+import CvQuestion from "../components/cv-question";
 
 const impactHighlights = [
   {
@@ -103,6 +104,7 @@ export default function Index() {
                     I build teams and platforms that make complex systems easier
                     for people and software to connect to.
                   </h1>
+                  <CvQuestion />
                   <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-700">
                     I am a commercially minded technical leader with experience
                     across agentic systems, enterprise connectivity, identity,
