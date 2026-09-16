@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 const examples = [
   "What has Matt built with MCP?",
@@ -43,8 +44,8 @@ export default function CvQuestion() {
   return (
     <div className="mt-8 max-w-3xl" id="ask-cv">
       <form onSubmit={ask}>
-        <div className="prompt-ring relative overflow-hidden rounded-2xl p-[2px] shadow-lg shadow-blue-900/10">
-          <div className="relative z-10 flex items-center gap-3 rounded-[14px] bg-white px-4 py-3 sm:px-5">
+        <div className="prompt-ring rounded-2xl p-[2px] shadow-lg shadow-blue-900/10">
+          <div className="flex items-center gap-3 rounded-[14px] bg-white px-4 py-3 sm:px-5">
             <span aria-hidden="true" className="text-lg text-gray-400">
               ✦
             </span>
@@ -69,27 +70,71 @@ export default function CvQuestion() {
       </form>
 
       {!answer && !error && (
-        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-xs text-gray-500">
-          <span>Try:</span>
-          {examples.map((example) => (
-            <button
-              className="hover:text-gray-900 hover:underline"
-              key={example}
-              onClick={() => setQuestion(example)}
-              type="button"
-            >
-              {example}
-            </button>
-          ))}
+        <div className="mt-4">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gray-400">
+            Try an example
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {examples.map((example) => (
+              <button
+                className="border border-gray-300 bg-white px-3 py-2 text-left text-xs font-medium text-gray-700 transition hover:border-blue-700 hover:text-blue-700 focus:border-blue-700 focus:outline-none"
+                key={example}
+                onClick={() => setQuestion(example)}
+                type="button"
+              >
+                {example}
+              </button>
+            ))}
+          </div>
         </div>
       )}
 
       {answer && (
         <div className="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-5 text-sm leading-7 text-gray-700 shadow-sm">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gray-400">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gray-400">
             From my CV
           </p>
-          <p className="whitespace-pre-wrap">{answer}</p>
+          <ReactMarkdown
+            components={{
+              a: ({ children, href }) => (
+                <a
+                  className="font-medium text-blue-700 underline hover:text-blue-900"
+                  href={href}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  {children}
+                </a>
+              ),
+              h1: ({ children }) => (
+                <h3 className="mb-2 mt-4 text-base font-bold text-gray-900 first:mt-0">
+                  {children}
+                </h3>
+              ),
+              h2: ({ children }) => (
+                <h3 className="mb-2 mt-4 text-base font-bold text-gray-900 first:mt-0">
+                  {children}
+                </h3>
+              ),
+              h3: ({ children }) => (
+                <h3 className="mb-2 mt-4 font-semibold text-gray-900 first:mt-0">
+                  {children}
+                </h3>
+              ),
+              ol: ({ children }) => (
+                <ol className="my-2 list-decimal space-y-1 pl-5">{children}</ol>
+              ),
+              p: ({ children }) => <p className="my-2 first:mt-0 last:mb-0">{children}</p>,
+              strong: ({ children }) => (
+                <strong className="font-semibold text-gray-900">{children}</strong>
+              ),
+              ul: ({ children }) => (
+                <ul className="my-2 list-disc space-y-1 pl-5">{children}</ul>
+              ),
+            }}
+          >
+            {answer}
+          </ReactMarkdown>
         </div>
       )}
 
@@ -100,10 +145,15 @@ export default function CvQuestion() {
       )}
 
       <style jsx>{`
-        .prompt-ring::before {
-          animation: cv-gradient-spin 5s linear infinite;
-          background: conic-gradient(
-            from 0deg,
+        .prompt-ring {
+          animation: cv-gradient-flow 5s linear infinite;
+          background: linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed,
+            #db2777,
+            #ea580c,
+            #059669,
             #2563eb,
             #7c3aed,
             #db2777,
@@ -111,22 +161,17 @@ export default function CvQuestion() {
             #059669,
             #2563eb
           );
-          content: "";
-          height: 420%;
-          left: -160%;
-          position: absolute;
-          top: -160%;
-          width: 420%;
+          background-size: 200% 100%;
         }
 
-        @keyframes cv-gradient-spin {
+        @keyframes cv-gradient-flow {
           to {
-            transform: rotate(360deg);
+            background-position: -100% 0;
           }
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .prompt-ring::before {
+          .prompt-ring {
             animation: none;
           }
         }
