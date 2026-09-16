@@ -8,7 +8,7 @@ const impactHighlights = [
   },
   {
     value: "$10m",
-    label: "Blink revenue supported through early GTM solutions engineering",
+    label: "Blink revenue supported while building its integration and solutions engineering capability",
   },
   {
     value: "13.3%",
@@ -22,32 +22,45 @@ const roles = [
     company: "Cisco ThousandEyes",
     dates: "June 2024 - Present",
     summary:
-      "Leading complex full-stack BGP features, technical architecture, AI-first development practices, and cross-team frontend quality improvements.",
+      "Technical Lead for Agentic Systems Engineering, running the team responsible for our internal agent runtime and Agentic SDLC. I work with engineering teams across Cisco to understand their use cases, improve the platform and roll it out more widely. I have also written tools for the ThousandEyes MCP server and use MCP day to day.",
+    details:
+      "Previously, I led architecture and delivery across the BGP product, including Easy Onboarding, which automates test and alert-rule creation using an intelligent matching engine and drove a 7% increase in BGP test revenue in its first month. I also drove engineering quality and infrastructure efficiency across the area, including work that reduced customer-reported bugs by 13.3% and BGP infrastructure costs by $52k per year.",
   },
   {
     title: "Lead Software Engineer",
     company: "Vorboss",
     dates: "April 2023 - June 2024",
     summary:
-      "Managed a team of 8 full-stack product engineers building fibre planning, build, and network operations software for fast service delivery.",
+      "Managed a team of 8 full-stack product engineers building fibre planning, build and network operations software. I owned the roadmap with senior business stakeholders and acted as technical design authority while giving the team space to own delivery and architecture.",
   },
   {
     title: "Head of Solutions Engineering",
     company: "Blink",
     dates: "May 2019 - April 2023",
     summary:
-      "Built global pre-sales and professional services teams, led strategic customer work, and supported growth through major enterprise integrations.",
+      "Built and led Blink's global Solutions Engineering team. Before building the team I owned integrations end to end, covering SCIM, SAML, OAuth and API connectivity into systems including Workday, Google and other enterprise tools. That work became a reusable library of integrations and connectivity patterns rather than a set of one-off customer implementations.",
   },
   {
-    title: "Full Stack Developer and Development Lead",
-    company: "Blink / RBC Capital Markets",
-    dates: "2011 - 2019",
+    title: "Full Stack Developer",
+    company: "Blink",
+    dates: "July 2015 - May 2019",
     summary:
-      "Built product features, shared libraries, cloud infrastructure, authentication, reporting dashboards, and graph-backed architecture tooling.",
+      "Built product capabilities front to back across the application and AWS infrastructure, including the core enterprise identity and provisioning work behind OAuth 2.0, SAML 2.0 and SCIM, alongside APIs used by Blink's growing integration ecosystem.",
+  },
+  {
+    title: "Development Lead - Architecture Team",
+    company: "RBC Capital Markets",
+    dates: "March 2013 - July 2015",
+    summary:
+      "Led development of an architecture platform tracking real-time data flows across the bank through APIs and event-driven integration, backed by a Neo4j graph model and operational reporting for end users.",
   },
 ];
 
 const technologies = [
+  "MCP",
+  "OAuth 2.0",
+  "SAML 2.0",
+  "SCIM",
   "TypeScript",
   "React",
   "Vue.js",
@@ -73,7 +86,7 @@ export default function Index() {
         <title>Matt Ridley | Engineering Leader</title>
         <meta
           name="description"
-          content="Matt Ridley is a product-focused engineering leader building high-quality software teams, network observability products, and AI-assisted engineering workflows."
+          content="Matt Ridley is an engineering leader working across agentic systems, MCP, enterprise connectivity, identity, integrations and product engineering."
         />
       </Head>
       <div className="min-h-screen bg-gray-50 text-gray-900">
@@ -87,14 +100,14 @@ export default function Index() {
               <div className="grid gap-12 lg:grid-cols-3 lg:items-end">
                 <div className="lg:col-span-2">
                   <h1 className="max-w-4xl text-4xl font-bold leading-tight text-gray-900 sm:text-5xl">
-                    I build teams and software systems that turn complex
-                    technical domains into useful products.
+                    I build teams and platforms that make complex systems easier
+                    for people and software to connect to.
                   </h1>
                   <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-700">
                     I am a commercially minded technical leader with experience
-                    across network observability, fibre operations, enterprise
-                    SaaS, integrations, AI-assisted delivery, and full-stack
-                    product engineering.
+                    across agentic systems, enterprise connectivity, identity,
+                    integrations, network observability and full-stack product
+                    engineering.
                   </p>
                 </div>
                 <div className="border-l-4 border-blue-700 bg-gray-50 p-6">
@@ -102,9 +115,9 @@ export default function Index() {
                     Current focus
                   </p>
                   <p className="mt-3 text-base leading-7 text-gray-700">
-                    Cisco ThousandEyes technical leadership, BGP product
-                    delivery, AI-first development practices, and engineering
-                    quality at scale.
+                    Leading ThousandEyes Agentic Systems Engineering: our
+                    internal agent runtime, MCP architecture, Agentic SDLC and
+                    adoption across engineering teams at Cisco.
                   </p>
                 </div>
               </div>
@@ -162,10 +175,11 @@ export default function Index() {
                   Experience
                 </h2>
                 <p className="mt-4 text-base leading-7 text-gray-700">
-                  I work best where product judgement, delivery discipline, and
-                  technical depth all matter. Recent work spans BGP onboarding,
-                  alert automation, agentic development workflows, and quality
-                  practices that help teams ship with confidence.
+                  A lot of my career has been about connectivity in one form or
+                  another: enterprise identity and integrations at Blink,
+                  network and operational platforms at Vorboss and ThousandEyes,
+                  and now MCP and agent infrastructure used across engineering
+                  teams at Cisco.
                 </p>
               </div>
               <div className="space-y-6 lg:col-span-3">
@@ -188,6 +202,11 @@ export default function Index() {
                     <p className="mt-3 text-base leading-7 text-gray-700">
                       {role.summary}
                     </p>
+                    {role.details && (
+                      <p className="mt-3 text-base leading-7 text-gray-700">
+                        {role.details}
+                      </p>
+                    )}
                   </article>
                 ))}
               </div>
