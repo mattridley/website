@@ -22,7 +22,7 @@ const roles = [
     company: "Cisco ThousandEyes",
     dates: "June 2024 - Present",
     summary:
-      "Technical Lead for Agentic Systems Engineering, running the team responsible for our internal agent runtime and Agentic SDLC. I work with engineering teams across Cisco to understand their use cases, improve the platform and roll it out more widely. The runtime uses MCP, including a proxy that keeps MCP credentials out of runtime pods; I have also written tools for the ThousandEyes MCP server and use MCP day to day.",
+      "Technical Lead for Agentic Systems Engineering, running the team responsible for our internal agent runtime and Agentic SDLC. I work with engineering teams across Cisco to understand their use cases, improve the platform and roll it out more widely. The runtime uses MCP, including a proxy that keeps MCP credentials out of runtime pods; I have also written tools for the ThousandEyes MCP server and use MCP day to day. Alongside this, I have spent the last two years leading architecture and delivery across the BGP product, including Easy Onboarding, which automates test and alert-rule creation using an intelligent matching engine and drove a 7% increase in BGP test revenue in its first month. I have also driven engineering quality and infrastructure efficiency across the area, including work that reduced customer-reported bugs by 13.3% and BGP infrastructure costs by $52k per year.",
   },
   {
     title: "Lead Software Engineer",
