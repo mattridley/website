@@ -22,8 +22,8 @@ jobs:
           node-version: 24
       - name: Upgrade Next, React and TypeScript
         run: |
-          npm install --ignore-scripts next@latest react@latest react-dom@latest
-          npm install --ignore-scripts --save-dev typescript@latest @types/react@latest @types/react-dom@latest @types/node@latest
+          npm install --ignore-scripts --legacy-peer-deps next@latest react@latest react-dom@latest
+          npm install --ignore-scripts --legacy-peer-deps --save-dev typescript@latest @types/react@latest @types/react-dom@latest @types/node@latest
       - name: Remove obsolete Next serverless target
         run: |
           cat > next.config.js <<'EOF'
