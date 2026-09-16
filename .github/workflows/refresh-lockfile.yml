@@ -47,7 +47,7 @@ jobs:
           header_text = header.read_text().replace('href: "/ask",', 'href: "/#ask-cv",')
           header.write_text(header_text)
           PY
-      - run: npm install --package-lock-only --ignore-scripts
+      - run: npm install --package-lock-only --ignore-scripts --legacy-peer-deps
       - name: Commit generated changes
         run: |
           git config user.name "github-actions[bot]"
