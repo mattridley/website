@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "../components/header";
+import CvQuestion from "../components/cv-question";
 
 const impactHighlights = [
   {

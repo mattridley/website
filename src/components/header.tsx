@@ -1,7 +1,7 @@
 const links = [
   {
     label: "Ask my CV",
-    href: "/ask",
+    href: "/#ask-cv",
     external: false,
   },
   {
