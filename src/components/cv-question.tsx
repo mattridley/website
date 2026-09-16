@@ -50,11 +50,11 @@ export default function CvQuestion() {
               ✦
             </span>
             <input
-              aria-label="Ask my CV"
+              aria-label="Explore my experience"
               className="min-w-0 flex-1 bg-transparent py-2 text-base text-gray-900 outline-none placeholder:text-gray-400"
               maxLength={300}
               onChange={(event) => setQuestion(event.target.value)}
-              placeholder="Ask my CV anything…"
+              placeholder="Explore my experience…"
               value={question}
             />
             <button
@@ -92,7 +92,7 @@ export default function CvQuestion() {
       {answer && (
         <div className="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-5 text-sm leading-7 text-gray-700 shadow-sm">
           <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gray-400">
-            From my CV
+            From my experience
           </p>
           <ReactMarkdown
             components={{
